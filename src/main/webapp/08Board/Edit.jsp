@@ -44,8 +44,7 @@ function validateForm(form) {  // 폼 내용 검증
         <tr>
             <td>제목</td>
             <td>
-                <input type="text" name="title" style="width: 90%;" 
-                       value="<%= dto.getTitle() %>"/> 
+                <input type="text" name="title" style="width: 90%;" value="<%= dto.getTitle() %>"/> 
             </td>
         </tr>
         <tr>

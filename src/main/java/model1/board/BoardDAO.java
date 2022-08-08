@@ -21,6 +21,8 @@ public class BoardDAO extends JDBConnect {
             query += " WHERE " + map.get("searchField") + " "
                    + " LIKE '%" + map.get("searchWord") + "%'";
         }
+        
+        System.out.println(query);
 
         try {
             stmt = con.createStatement();   // 쿼리문 생성
@@ -46,7 +48,9 @@ public class BoardDAO extends JDBConnect {
                    + " LIKE '%" + map.get("searchWord") + "%' ";
         }
         query += " ORDER BY num DESC "; 
-
+        
+        System.out.println(query);
+        
         try {
             stmt = con.createStatement();   // 쿼리문 생성
             rs = stmt.executeQuery(query);  // 쿼리 실행
@@ -92,7 +96,9 @@ public class BoardDAO extends JDBConnect {
                + "     ) Tb "
                + " ) "
                + " WHERE rNum BETWEEN ? AND ?"; 
-
+        
+        System.out.println(query);
+        
         try {
             // 쿼리문 완성 
             psmt = con.prepareStatement(query);
@@ -128,13 +134,16 @@ public class BoardDAO extends JDBConnect {
     // 게시글 데이터를 받아 DB에 추가합니다. 
     public int insertWrite(BoardDTO dto) {
         int result = 0;
+        // INSERT 쿼리문 작성 
+        String query = "INSERT INTO board ( "
+                     + " num,title,content,id,visitcount) "
+                     + " VALUES ( "
+                     + " seq_board_num.NEXTVAL, ?, ?, ?, 0)";
+        
+        System.out.println(query);
         
         try {
-            // INSERT 쿼리문 작성 
-            String query = "INSERT INTO board ( "
-                         + " num,title,content,id,visitcount) "
-                         + " VALUES ( "
-                         + " seq_board_num.NEXTVAL, ?, ?, ?, 0)";  
+             
 
             psmt = con.prepareStatement(query);  // 동적 쿼리 
             psmt.setString(1, dto.getTitle());  
@@ -161,6 +170,8 @@ public class BoardDAO extends JDBConnect {
                      + " FROM member M INNER JOIN board B " 
                      + " ON M.id=B.id "
                      + " WHERE num=?";
+        
+        System.out.println(query);
 
         try {
             psmt = con.prepareStatement(query);
@@ -193,6 +204,8 @@ public class BoardDAO extends JDBConnect {
                      + " visitcount=visitcount+1 "
                      + " WHERE num=?";
         
+        System.out.println(query);
+        
         try {
             psmt = con.prepareStatement(query);
             psmt.setString(1, num);  // 인파라미터를 일련번호로 설정 
@@ -208,12 +221,14 @@ public class BoardDAO extends JDBConnect {
     public int updateEdit(BoardDTO dto) { 
         int result = 0;
         
+        // 쿼리문 템플릿 
+        String query = "UPDATE board SET "
+                     + " title=?, content=? "
+                     + " WHERE num=?";
+        
+        System.out.println(query);
+        
         try {
-            // 쿼리문 템플릿 
-            String query = "UPDATE board SET "
-                         + " title=?, content=? "
-                         + " WHERE num=?";
-            
             // 쿼리문 완성
             psmt = con.prepareStatement(query);
             psmt.setString(1, dto.getTitle());
@@ -235,10 +250,12 @@ public class BoardDAO extends JDBConnect {
     public int deletePost(BoardDTO dto) { 
         int result = 0;
 
-        try {
-            // 쿼리문 템플릿
-            String query = "DELETE FROM board WHERE num=?"; 
+        // 쿼리문 템플릿
+        String query = "DELETE FROM board WHERE num=?"; 
+        
+        System.out.println(query);
 
+        try {
             // 쿼리문 완성
             psmt = con.prepareStatement(query); 
             psmt.setString(1, dto.getNum()); 

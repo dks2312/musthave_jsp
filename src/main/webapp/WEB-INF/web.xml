@@ -32,20 +32,20 @@
 
   <!-- 오라클 데이터베이스 접속 정보(예제 5-8) -->
   <context-param>
-  	<param-name>OracleDrivaer</param-name>
+  	<param-name>OracleDriver</param-name>
   	<param-value>oracle.jdbc.driver.OracleDriver</param-value>
   </context-param>
   <context-param>
-  	<param-name>OracleURL</param-name>
-  	<param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+    <param-name>OracleURL</param-name>
+    <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
   </context-param>
   <context-param>
-  	<param-name>OracleId</param-name>
-  	<param-value>c##green</param-value>
+    <param-name>OracleId</param-name>
+    <param-value>c##musthave</param-value>
   </context-param>
   <context-param>
-  	<param-name>OraclePwd</param-name>
-  	<param-value>green1234</param-value>
+    <param-name>OraclePwd</param-name>
+    <param-value>1234</param-value>
   </context-param>
   
   <!-- 세션 유지 시간 설정(예제 6-1) -->
