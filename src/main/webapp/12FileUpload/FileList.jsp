@@ -1,3 +1,4 @@
+<%@ include file="/Common/header.jsp" %>
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="java.util.List"%>
 <%@ page import="fileupload.MyfileDAO"%>

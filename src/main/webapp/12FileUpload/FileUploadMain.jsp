@@ -1,3 +1,4 @@
+<%@ include file="/Common/header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <html>
@@ -33,7 +34,7 @@
             <input type="checkbox" name="cate" value="워드" />워드 
             <input type="checkbox" name="cate" value="음원" />음원 <br /> 
         첨부파일 : <input type="file" name="attachedFile" /> <br />
-        <input type="submit" value="전송하기" />
+        <input class="btn btn-primary" type="submit" value="전송하기" />
     </form>
 </body>
 </html>

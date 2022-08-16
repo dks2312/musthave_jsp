@@ -23,7 +23,7 @@ try {
     String newFileName = now + ext;  // 새로운 파일 이름("업로드일시.확장자")
 
     // 3. 파일명 변경
-    File oldFile = new File(saveDirectory + File.separator + fileName);
+    File oldFile = new File(saveDirectory + File.separator + fileName);	// File.separator = OS에 따라 올바른 파일경로 구분자를 적용함.
     File newFile = new File(saveDirectory + File.separator + newFileName);
     oldFile.renameTo(newFile);
 
