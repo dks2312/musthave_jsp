@@ -35,20 +35,20 @@
             <th>제목</th><th>저자</th><th>가격</th>
         </tr>
         <x:forEach select="$blist/booklist/book" var="item">
-        <tr>
-            <td><x:out select="$item/name" /></td>
-            <td><x:out select="$item/author" /></td>
-            <td>
-                <x:choose>
-                    <x:when select="$item/price >= 20000"> 
-                        2만 원 이상 <br />
-                    </x:when>
-                    <x:otherwise>
-                        2만 원 미만 <br />
-                    </x:otherwise>
-                </x:choose>
-            </td>        
-        </tr>
+	        <tr>
+	            <td><x:out select="$item/name" /></td>
+	            <td><x:out select="$item/author" /></td>
+	            <td>
+	                <x:choose>
+	                    <x:when select="$item/price >= 20000"> 
+	                        2만 원 이상 <br />
+	                    </x:when>
+	                    <x:otherwise>
+	                        2만 원 미만 <br />
+	                    </x:otherwise>
+	                </x:choose>
+	            </td>        
+	        </tr>
         </x:forEach>
     </table>
         
