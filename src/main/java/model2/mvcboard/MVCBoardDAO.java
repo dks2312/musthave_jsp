@@ -70,7 +70,7 @@ public class MVCBoardDAO extends DBConnPool {
                 dto.setDowncount(rs.getInt(8));
                 dto.setPass(rs.getString(9));
                 dto.setVisitcount(rs.getInt(10));
-
+                
                 board.add(dto);
             }
         }
@@ -89,6 +89,7 @@ public class MVCBoardDAO extends DBConnPool {
                          + " idx, name, title, content, ofile, sfile, pass) "
                          + " VALUES ( "
                          + " seq_board_num.NEXTVAL,?,?,?,?,?,?)";
+            
             psmt = con.prepareStatement(query);
             psmt.setString(1, dto.getName());
             psmt.setString(2, dto.getTitle());
@@ -96,6 +97,7 @@ public class MVCBoardDAO extends DBConnPool {
             psmt.setString(4, dto.getOfile());
             psmt.setString(5, dto.getSfile());
             psmt.setString(6, dto.getPass());
+            
             result = psmt.executeUpdate();
         }
         catch (Exception e) {

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("*.one")
+@WebServlet("*.hello")
 public class FrontController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -17,11 +17,11 @@ public class FrontController extends HttpServlet {
         int lastSlash = uri.lastIndexOf("/");
         String commandStr = uri.substring(lastSlash);
 
-        if (commandStr.equals("/regist.one"))
+        if (commandStr.equals("/regist.hello"))
             registFunc(req);
-        else if (commandStr.equals("/login.one"))
+        else if (commandStr.equals("/login.hello"))
             loginFunc(req);
-        else if (commandStr.equals("/freeboard.one"))
+        else if (commandStr.equals("/freeboard.hello"))
             freeboardFunc(req);
 
         req.setAttribute("uri", uri);

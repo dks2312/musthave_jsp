@@ -46,7 +46,7 @@ public class MemberAuth extends HttpServlet {
         String memberName = memberDTO.getName();
         if (memberName != null) {  // 일치하는 회원 찾음
             req.setAttribute("authMessage", memberName + " 회원님 방가방가^^*");
-        }
+        } 
         else {  // 일치하는 회원 없음
             if (admin_id.equals(id))  // 관리자
                 req.setAttribute("authMessage", admin_id + "는 최고 관리자입니다.");
