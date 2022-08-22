@@ -28,6 +28,7 @@ else if (format.equals("html")) {
     try {
         // HTML 메일용 템플릿 파일 읽기
         String templatePath = application.getRealPath("/16EmailSend/MailForm.html");
+        
         BufferedReader br = new BufferedReader(new FileReader(templatePath));
 
         // 한 줄씩 읽어 htmlContent 변수에 저장

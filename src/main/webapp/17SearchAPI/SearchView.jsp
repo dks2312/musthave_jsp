@@ -9,6 +9,7 @@
 
 <script>
 // [검색 요청] 버튼 클릭 시 실행할 메서드를 정의합니다.
+// 엔터 키 입력 처리
 $(function() {
     $('#searchBtn').click(function() {
       $.ajax({
@@ -23,11 +24,28 @@ $(function() {
         error : errFunc         // 요청 실패 시 호출할 메서드 설정
       });
     });
+    
+    $('#keyword').keydown(function(key) {
+    	if(key.keyCode == 13){
+	        $.ajax({
+	          url : "../NaverSearchAPI.do",  // 요청 URL
+	          type : "get",                  // HTTP 메서드
+	          data : {                       // 매개변수로 전달할 데이터
+	              keyword : $('#keyword').val(),                   // 검색어
+	              startNum : $('#startNum option:selected').val()  // 검색 시작 위치
+	          },
+	          dataType : "json",      // 응답 데이터 형식
+	          success : sucFuncJson,  // 요청 성공 시 호출할 메서드 설정
+	          error : errFunc         // 요청 실패 시 호출할 메서드 설정
+	        });
+        }
+      });
 });
 
 // 검색 성공 시 결과를 화면에 뿌려줍니다.
 function sucFuncJson(d) {
     var str = "";
+    
     $.each(d.items, function(index, item) {
         str += "<ul>";
         str += "    <li>" + (index + 1) + "</li>";
@@ -55,7 +73,7 @@ function errFunc(e) {
 <body>
 <div>
     <div>
-        <form id="searchFrm">
+        <div id="searchFrm">
             한 페이지에 10개씩 출력됨 <br />
             <select id="startNum">
                 <option value="1">1페이지</option>
@@ -64,9 +82,9 @@ function errFunc(e) {
                 <option value="31">4페이지</option>
                 <option value="41">5페이지</option>
             </select>
-            <input type="text" id="keyword" placeholder="검색어를 입력하세요." />
+            <input type="text" id="keyword" placeholder="검색어를 입력하세요."/>
             <button type="button" id="searchBtn">검색 요청</button>
-        </form>
+        </div>
     </div>
     <div class="row" id="searchResult">
         여기에 검색 결과가 출력됩니다.

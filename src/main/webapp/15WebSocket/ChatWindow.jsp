@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>    
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>    
 <html>
 <head>
 <title>웹소켓 채팅</title>
@@ -71,7 +70,7 @@ webSocket.onmessage = function(event) {
     chatWindow.scrollTop = chatWindow.scrollHeight; 
 };
 </script>
-<style>  <!-- 대화창 스타일 지정 -->  
+<style>  
 #chatWindow{border:1px solid black; width:270px; height:310px; overflow:scroll; padding:5px;}
 #chatMessage{width:236px; height:30px;}
 #sendBtn{height:30px; position:relative; top:2px; left:-2px;}
@@ -88,6 +87,6 @@ webSocket.onmessage = function(event) {
     <div>
         <input type="text" id="chatMessage" onkeyup="enterKey();">
         <button id="sendBtn" onclick="sendMessage();">전송</button>
-    </div>    
+    </div>
 </body>
 </html>

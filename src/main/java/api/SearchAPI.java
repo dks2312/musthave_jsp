@@ -24,8 +24,8 @@ public class SearchAPI extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         // 1. 인증 정보 설정
-        String clientId = "본인의 클라이언트 아이디";
-        String clientSecret = "본인의 클라이언트 시크릿";
+        String clientId = "jjhX6Uww1R0mM7xeivhE";
+        String clientSecret = "szILsSna69";
 
         // 2. 검색 조건 설정
         int startNum = 0;    // 검색 시작 위치

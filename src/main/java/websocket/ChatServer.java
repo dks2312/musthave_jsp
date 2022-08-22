@@ -13,8 +13,7 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/ChatingServer")
 public class ChatServer {
-    private static Set<Session> clients
-            = Collections.synchronizedSet(new HashSet<Session>());
+    private static Set<Session> clients = Collections.synchronizedSet(new HashSet<Session>());
 
     @OnOpen  // 클라이언트 접속 시 실행
     public void onOpen(Session session) {
